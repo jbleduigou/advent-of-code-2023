@@ -1,9 +1,9 @@
 package calorie_counting
 
 import (
-	"fmt"
-	"os"
 	"testing"
+
+	"github.com/jbleduigou/advent-of-code-2023/util"
 )
 
 var example = `1000
@@ -35,7 +35,7 @@ func TestGetElfWithMaxCalories(t *testing.T) {
 		},
 		{
 			name:  "Real challenge",
-			input: getFile("puzzle.txt"),
+			input: util.GetFileSilently("puzzle.txt"),
 			want:  70509,
 		},
 	}
@@ -61,7 +61,7 @@ func TestGetTop3ElvesWithMaxCalories(t *testing.T) {
 		},
 		{
 			name:  "Real challenge",
-			input: getFile("puzzle.txt"),
+			input: util.GetFileSilently("puzzle.txt"),
 			want:  208567,
 		},
 	}
@@ -72,13 +72,4 @@ func TestGetTop3ElvesWithMaxCalories(t *testing.T) {
 			}
 		})
 	}
-}
-
-func getFile(path string) string {
-	b, err := os.ReadFile(path)
-	if err != nil {
-		fmt.Print(err)
-	}
-
-	return string(b)
 }

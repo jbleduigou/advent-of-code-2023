@@ -1,9 +1,9 @@
 package calibration_document
 
 import (
-	"fmt"
-	"os"
 	"testing"
+
+	"github.com/jbleduigou/advent-of-code-2023/util"
 )
 
 func TestSumOfCalibrationValues(t *testing.T) {
@@ -22,7 +22,7 @@ treb7uchet`,
 		},
 		{
 			name:  "Real challenge",
-			input: getFile("puzzle.txt"),
+			input: util.GetFileSilently("puzzle.txt"),
 			want:  55488,
 		},
 	}
@@ -54,7 +54,7 @@ zoneight234
 		},
 		{
 			name:  "Real challenge",
-			input: getFile("puzzle.txt"),
+			input: util.GetFileSilently("puzzle.txt"),
 			want:  55614,
 		},
 	}
@@ -65,13 +65,4 @@ zoneight234
 			}
 		})
 	}
-}
-
-func getFile(path string) string {
-	b, err := os.ReadFile(path)
-	if err != nil {
-		fmt.Print(err)
-	}
-
-	return string(b)
 }
